@@ -10,7 +10,7 @@ public interface SecurityConstant {
 
 	String REALMS = "agile.plugin.security.realms" ;
 	String REALMS_JDBC = "jdbc" ;
-	String REALMS_CUSTOM = "invoicing" ;
+	String REALMS_INVOICING = "invoicing" ;
 	
 	String AGILE_SECURITY = "agile.plugin.security.invoicing.class" ;
 	

@@ -11,6 +11,7 @@ import org.agle4j.framework.utils.ReflectionUtil;
  */
 public final class SecurityConfig {
 
+
 	public static String getRealms() {
 		return ConfigHelper.getString(SecurityConstant.REALMS);
 	}

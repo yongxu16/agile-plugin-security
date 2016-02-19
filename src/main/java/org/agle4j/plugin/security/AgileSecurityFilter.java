@@ -1,7 +1,11 @@
 package org.agle4j.plugin.security;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
 
+import org.agle4j.plugin.security.realm.AgileJdbcReaml;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.mgt.RealmSecurityManager;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.web.mgt.WebSecurityManager;
 import org.apache.shiro.web.servlet.ShiroFilter;
@@ -26,18 +30,44 @@ public class AgileSecurityFilter extends ShiroFilter {
 	
 	private void setRealms(WebSecurityManager webSecurityManager) {
 		// 读取 smart.plugin.security.realms 配置项
-//		String securityRealms
+		String securityRealms = SecurityConfig.getRealms() ;
+		if(StringUtils.isNotEmpty(securityRealms)) {
+			// 根据逗号进行拆分
+			String[] securityRealmArray = securityRealms.split(",") ;
+			if(securityRealmArray.length < 0) {
+				// 使 Realm 具备唯一性与顺序性
+				Set<Realm> realmSet = new LinkedHashSet<>() ;
+				for (String securityRealm : securityRealmArray) {
+					if (securityRealm.equalsIgnoreCase(SecurityConstant.REALMS_JDBC)) {
+						// 添加居于 JDBC 的 Realm, 需配置相关 SQL 查询语句
+						addJdbcRealm(realmSet);
+					} else if (securityRealm.equalsIgnoreCase(SecurityConstant.REALMS_INVOICING)) {
+						// 添加居于定制化的 Realm, 需实现 AgileSecurity 接口
+						addInvoicingRealm(realmSet);
+					}
+				}
+				
+				RealmSecurityManager realmSecurityManager = (RealmSecurityManager) webSecurityManager ;
+				realmSecurityManager.setRealms(realmSet); // 设置 Realm
+			}
+			
+		}
+	}
+	
+	private void addJdbcRealm(Set<Realm> realmSet) {
+		// 添加自己实现基于 JDBC的 Realm
+		AgileJdbcReaml agileJdbcReaml = new AgileJdbcReaml() ;
+		realmSet.add(agileJdbcReaml) ;
+	}
+	
+	private void addInvoicingRealm(Set<Realm> realmSet) {
+		// 读取 agile.plugin.security.invoicing.class 配置项
+		AgileSecurity agileSecurity = SecurityConfig.getAgileSecurity() ;
+		// 添加自己实现的 Realm
+		
 	}
 	
 	private void setCache(WebSecurityManager webSecurityManager) {
-		
-	}
-	
-	private void addJdbcRealm(Set<Realm> realms) {
-		
-	}
-	
-	private void addCustomRealm(Set<Realm> realms) {
 		
 	}
 }
