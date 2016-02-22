@@ -17,11 +17,21 @@
 	</tag>
 	
 	<tag>
-		<description>判断当前用户是否未登录(包括：未认证或未记住, 即“访客”身份)</description>
+		<description>判断当前用户是否未登录(包括：未认证或未记住, 即 "访客" 身份)</description>
 		<name>guest</name>
 		<tag-class>org.apache.shiro.web.tags.GuestTag</tag-class>
 		<body-content>JSP</body-content>
 	</tag>
 	
-	
+	<tag>
+		<description>判断当前用户是否拥有其中所有角色(逗号分隔, 表示 "与" 的关系)</description>
+		<name>hasAllRoles</name>
+		<tag-class>org.agle4j.plugin.security.tag.HasAllRolesTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>name</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
 </taglib>
