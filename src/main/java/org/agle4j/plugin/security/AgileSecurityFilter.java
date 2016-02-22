@@ -3,8 +3,12 @@ package org.agle4j.plugin.security;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import org.agle4j.plugin.security.realm.AgileInvoicingRealm;
 import org.agle4j.plugin.security.realm.AgileJdbcReaml;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.cache.CacheManager;
+import org.apache.shiro.cache.MemoryConstrainedCacheManager;
+import org.apache.shiro.mgt.CachingSecurityManager;
 import org.apache.shiro.mgt.RealmSecurityManager;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.web.mgt.WebSecurityManager;
@@ -64,10 +68,17 @@ public class AgileSecurityFilter extends ShiroFilter {
 		// 读取 agile.plugin.security.invoicing.class 配置项
 		AgileSecurity agileSecurity = SecurityConfig.getAgileSecurity() ;
 		// 添加自己实现的 Realm
-		
+		AgileInvoicingRealm agileInvoicingRealm = new AgileInvoicingRealm(agileSecurity) ;
+		realmSet.add(agileInvoicingRealm) ;
 	}
 	
 	private void setCache(WebSecurityManager webSecurityManager) {
-		
+		// 读取 agile.plugin.security.cache配置项
+		if (SecurityConfig.isCacheable()) {
+			CachingSecurityManager cachingSecurityManager = (CachingSecurityManager) webSecurityManager ;
+			// 使用基于内存的 CacheManager
+			CacheManager cacheManager = new MemoryConstrainedCacheManager() ;
+			cachingSecurityManager.setCacheManager(cacheManager);
+		}
 	}
 }
