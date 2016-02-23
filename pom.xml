@@ -4,7 +4,6 @@
 
 	<groupId>org.agile.plugin.security</groupId>
 	<artifactId>agile-plugin-security</artifactId>
-	<packaging>war</packaging>
 	<version>0.0.1</version>
 
 	<properties>
