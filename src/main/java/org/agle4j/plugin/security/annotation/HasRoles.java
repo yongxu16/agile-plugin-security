@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
  */
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface HasRols {
+public @interface HasRoles {
 
 	/**
 	 * 角色字符串
