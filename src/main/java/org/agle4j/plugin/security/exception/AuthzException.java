@@ -6,7 +6,7 @@ package org.agle4j.plugin.security.exception;
  * @author hanyx
  * @since 0.0.9
  */
-public class AuthzException extends Exception{
+public class AuthzException extends RuntimeException{
 
 	public AuthzException() {
 		super() ;
