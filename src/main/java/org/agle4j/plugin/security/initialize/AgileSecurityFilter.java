@@ -18,7 +18,7 @@ import org.apache.shiro.web.mgt.WebSecurityManager;
 import org.apache.shiro.web.servlet.ShiroFilter;
 
 /**
- * 安全过滤器
+ * Agile 安全过滤器
  * 
  * @author hanyx
  * @since 1.0.0
