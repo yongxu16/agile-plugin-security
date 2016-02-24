@@ -10,12 +10,12 @@ import javax.servlet.ServletException;
 import org.apache.shiro.web.env.EnvironmentLoaderListener;
 
 /**
- * Agile Security 插件
+ * Agile Security 初始化
  * 
  * @author hanyx
  * @since 1.0.0
  */
-public class AgileSecurityPlugin implements ServletContainerInitializer {
+public class AgileSecurityInitializer implements ServletContainerInitializer {
 
 	public void onStartup(Set<Class<?>> handlersTypes, ServletContext servletContext) throws ServletException {
 		// 设置初始化参数
