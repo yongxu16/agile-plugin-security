@@ -5,7 +5,7 @@ import java.util.Set;
 
 import org.agle4j.framework.utils.CollectionUtil;
 import org.agle4j.plugin.security.AgileSecurity;
-import org.agle4j.plugin.security.SecurityConstant;
+import org.agle4j.plugin.security.constant.SecurityConstant;
 import org.agle4j.plugin.security.password.Md5CredentialsMatcher;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;

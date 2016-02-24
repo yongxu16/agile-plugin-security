@@ -1,4 +1,4 @@
-package org.agle4j.plugin.security;
+package org.agle4j.plugin.security.init;
 
 import java.util.Set;
 
