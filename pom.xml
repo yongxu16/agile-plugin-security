@@ -2,14 +2,30 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.agile.plugin.security</groupId>
+	<parent>
+		<groupId>org.agile4j</groupId>
+		<artifactId>agile-root</artifactId>
+		<version>1.0</version>
+	</parent>
+	
 	<artifactId>agile-plugin-security</artifactId>
-	<version>0.0.1</version>
-
+	<version>1.0.1</version>
+	
+	<name>Agile-plugin-security</name>
+    <description>Agile Security Plugin</description>
+    
+    <developers>
+        <developer>
+            <name>hanyongxu</name>
+            <email>yongxu16@163.com</email>
+        </developer>
+    </developers>
+    
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<junit.version>4.12</junit.version>
 		<shiro.version>1.2.4</shiro.version>
+		<agile-framework.version>1.0.0</agile-framework.version>
 	</properties>
 
 	<dependencies>
@@ -33,11 +49,11 @@
 			<scope>provided</scope>
 		</dependency>
 		
-		<!-- agile4j -->
+		<!-- agile-framework -->
 		<dependency>
-			<groupId>org.framework</groupId>
-			<artifactId>agile4j</artifactId>
-			<version>1.0.0</version>
+			<groupId>org.agile4j</groupId>
+			<artifactId>agile-framework</artifactId>
+			<version>${agile-framework.version}</version>
 		</dependency>
 		
 		<!-- shiro安全框架 -->
@@ -47,8 +63,20 @@
 			<version>${shiro.version}</version>
 		</dependency>
 		
+		<!-- log配置：Log4j2 -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.3</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>agile-plugin-security</finalName>
 	</build>
+	
 </project>
