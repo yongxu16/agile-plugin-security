@@ -14,6 +14,7 @@ import org.apache.shiro.web.tags.UserTag;
 
 public class IniTest {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		EnvironmentLoaderListener a ;
 		ShiroFilter s ;
