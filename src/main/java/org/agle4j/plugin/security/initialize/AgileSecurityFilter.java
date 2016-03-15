@@ -41,7 +41,7 @@ public class AgileSecurityFilter extends ShiroFilter {
 		if(StringUtils.isNotEmpty(securityRealms)) {
 			// 根据逗号进行拆分
 			String[] securityRealmArray = securityRealms.split(",") ;
-			if(securityRealmArray.length < 0) {
+			if(securityRealmArray.length > 0) {
 				// 使 Realm 具备唯一性与顺序性
 				Set<Realm> realmSet = new LinkedHashSet<>() ;
 				for (String securityRealm : securityRealmArray) {
