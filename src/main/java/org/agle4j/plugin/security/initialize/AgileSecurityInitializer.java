@@ -19,7 +19,7 @@ public class AgileSecurityInitializer implements ServletContainerInitializer {
 
 	public void onStartup(Set<Class<?>> handlersTypes, ServletContext servletContext) throws ServletException {
 		// 设置初始化参数
-		servletContext.setInitParameter("shiroconfigLocations", "classpath:agile-security.ini");
+		servletContext.setInitParameter("shiroConfigLocations", "classpath:agile-security.ini");
 		// 注册 Listenner
 		servletContext.addListener(EnvironmentLoaderListener.class);
 		// 注册 Filter
