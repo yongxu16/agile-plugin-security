@@ -12,7 +12,7 @@ public interface SecurityConstant {
 	String REALMS_JDBC = "jdbc" ;
 	String REALMS_INVOICING = "invoicing" ;
 	
-	String AGILE_SECURITY = "agile.plugin.security.invoicing.class" ;
+	String AGILE_SECURITY = "agile.plugin.security.agilesecurity" ;
 	
 	String JDBC_AUTHC_QUERY = "agile.plugin.security.jdbc.authc_query" ;
 	String JDBC_ROLES_QUERY = "agile.plugin.security.jdbc.rolse_query" ;

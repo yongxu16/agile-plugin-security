@@ -21,10 +21,11 @@ public final class SecurityHelper {
 	/**
 	 * 登录
 	 */
-	public static void login(String username, String password) throws AuthcException {
+	public static void login(String username, String password, boolean isRememberMe) throws AuthcException {
 		Subject currentUser = SecurityUtils.getSubject() ;
 		if (currentUser != null) {
 			UsernamePasswordToken token = new UsernamePasswordToken(username, password) ;
+			token.setRememberMe(isRememberMe);
 			try {
 				currentUser.login(token);
 			} catch (AuthenticationException e) {

@@ -9,6 +9,7 @@ import org.apache.shiro.web.tags.PermissionTag;
  * @author hanyx
  * @since
  */
+@SuppressWarnings("serial")
 public class HasAnyPermisssionsTag extends PermissionTag {
 	
 	private static final String PERMISSION_NAMES_DELIMETER = ",";

@@ -1,7 +1,5 @@
 package org.agle4j.plugin.security.tag;
 
-import java.util.Arrays;
-
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.tags.PermissionTag;
 

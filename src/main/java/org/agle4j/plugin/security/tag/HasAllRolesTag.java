@@ -11,6 +11,7 @@ import org.apache.shiro.web.tags.RoleTag;
  * @author hanyx
  * @since 0.0.9
  */
+@SuppressWarnings("serial")
 public class HasAllRolesTag extends RoleTag {
 
 	private static final String ROLE_NAMES_DELIMITER = ",";
